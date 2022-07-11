@@ -14,10 +14,9 @@ export async function getStaticPaths() {
   const dataLinks = Object.keys(data.links);
 
   dataLinks.forEach((linkKey: any) => {
-    if (data.links[linkKey].is_folder || data.links[linkKey].slug === "home")
-      return;
+    if (data.links[linkKey].is_folder || data.links[linkKey].slug === "home") return;
     const slug = data.links[linkKey].slug;
-    let derivedSlug = slug.split("/");
+    const derivedSlug = slug.split("/");
     pathList.push({ params: { slug: derivedSlug } });
   });
 
@@ -27,9 +26,8 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }: any) {
+export async function getStaticProps({ params, preview }: any) {
   let slug = params.slug ? params.slug.join("/") : "home";
-
   let sbParams = {
     version: "draft",
   };
@@ -41,13 +39,14 @@ export async function getStaticProps({ params }: any) {
     props: {
       story: data ? data.story : false,
       key: data ? data.story.id : false,
+      preview: preview || false,
     },
     revalidate: 3600,
   };
 }
 
-const Home = ({ story }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  const { content, name } = useStoryblokState(story);
+const Home = ({ story, preview }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const { content, name } = useStoryblokState(story, {}, preview);
 
   return (
     <div className="flex h-full w-full flex-col items-center justify-center py-2">
