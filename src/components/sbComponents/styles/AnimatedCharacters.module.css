@@ -1,0 +1,8 @@
+.animated_character_container {
+    display: inline-block;
+    overflow: hidden;
+}
+
+.animated_character_element {
+    display: inline-block;
+}
