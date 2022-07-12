@@ -2,13 +2,13 @@ import "../styles/globals.css";
 import "../styles/app.css";
 import type { AppProps } from "next/app";
 import { storyblokInit, apiPlugin } from "@storyblok/react";
-import Grid from "../components/sbComponents/Grid";
-import Teaser from "../components/sbComponents/Teaser";
-import Page from "../components/sbComponents/Page";
-import NextCard from "../components/sbComponents/NextCard";
-import Paragraph from "../components/sbComponents/Paragraph";
-import Footer from "../components/sbComponents/Footer";
-import SplitCarouselView from "../components/sbComponents/SplitCarouselView";
+import Grid from "../components/sbComponents/Common/Grid";
+import Teaser from "../components/sbComponents/Common/Teaser";
+import Page from "../components/sbComponents/Common/Page";
+import NextCard from "../components/sbComponents/NextCard/NextCard";
+import Paragraph from "../components/sbComponents/Common/Paragraph";
+import Footer from "../components/sbComponents/Common/Footer";
+import SplitCarouselView from "../components/sbComponents/SplitCarouselView/SplitCarouselView";
 
 const components = {
   Grid: Grid,
