@@ -12,7 +12,7 @@ const SplitCarouselImage = ({ currentItem }: CarouselImageType) => {
   return (
     <AnimatePresence exitBeforeEnter>
       <motion.img
-        key={currentItem.bg_image}
+        key={currentItem._uid}
         src={currentItem.bg_image}
         whileHover={carouselImageAnimationOptions.hover}
         transition={carouselImageAnimationOptions.transition}

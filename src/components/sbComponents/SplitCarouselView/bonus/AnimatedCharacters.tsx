@@ -4,8 +4,8 @@ import styles from "../../styles/AnimatedCharacters.module.css";
 import { animatedCharacterContainerOptions, animatedCharactersOptions } from "../animationOptions";
 
 export const TagOptions = {
-  h1: "H1",
-  h2: "H2",
+  h1: "h1",
+  h2: "h2",
   p: "p",
 };
 
@@ -35,9 +35,9 @@ const AnimatedCharacters = ({ content, tag, className }: AnimatedCharactersType)
   return (
     <motion.div initial="hidden" animate="visible" variants={animatedCharacterContainerOptions}>
       <DynamicHeading className={className}>
-        {wordInLetters.map((wordList) => {
+        {wordInLetters.map((wordList, index) => {
           return (
-            <>
+            <div key={index}>
               {wordList.flat().map((letter, index) => {
                 return (
                   <motion.span className={styles.animated_character_container} key={index}>
@@ -47,7 +47,7 @@ const AnimatedCharacters = ({ content, tag, className }: AnimatedCharactersType)
                   </motion.span>
                 );
               })}
-            </>
+            </div>
           );
         })}
       </DynamicHeading>
