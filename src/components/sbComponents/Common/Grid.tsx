@@ -2,7 +2,7 @@ import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
 import {
   StoryblokGridType,
   StoryblokNestedType,
-} from "../../types/StoryblokComponentTypes";
+} from "../types/StoryblokComponentTypes";
 
 const Grid = ({ blok }: StoryblokGridType) => {
   return (
