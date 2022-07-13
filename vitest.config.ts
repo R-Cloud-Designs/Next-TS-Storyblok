@@ -8,5 +8,12 @@ export default defineConfig({
   plugins: [react()],
   test: {
     environment: "jsdom",
+    passWithNoTests: true,
+    coverage: {
+      enabled: true,
+      reportsDirectory: ".coverage/",
+    },
   },
+  envDir: ".env.development",
+  logLevel: "info",
 });
