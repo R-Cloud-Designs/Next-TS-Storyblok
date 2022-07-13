@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "../styles/SplitCarouselView.module.css";
-import { SplitCarouselViewType } from "./helpers/StoryblokComponentTypes";
+import { SplitCarouselViewType } from "../types/StoryblokComponentTypes";
 import { reduceCarouselViewItems } from "./helpers/reduceCarouselItems";
 import { storyblokEditable } from "@storyblok/react";
 import { getIndexOf } from "./helpers/getIndexOf";

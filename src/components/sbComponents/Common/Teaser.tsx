@@ -1,5 +1,6 @@
+import React from "react";
 import { storyblokEditable } from "@storyblok/react";
-import { StoryblokTeaserType } from "../SplitCarouselView/helpers/StoryblokComponentTypes";
+import { StoryblokTeaserType } from "../types/StoryblokComponentTypes";
 
 const Teaser = ({ blok }: StoryblokTeaserType) => {
   return (
