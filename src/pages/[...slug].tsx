@@ -14,7 +14,6 @@ export async function getStaticPaths() {
   const dataLinks = Object.keys(data.links);
 
   dataLinks.forEach((linkKey: any) => {
-    if (data.links[linkKey].is_folder || data.links[linkKey].slug === "home") return;
     const slug = data.links[linkKey].slug;
     const derivedSlug = slug.split("/");
     pathList.push({ params: { slug: derivedSlug } });
