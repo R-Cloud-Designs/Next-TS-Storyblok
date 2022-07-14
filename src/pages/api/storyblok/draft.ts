@@ -4,7 +4,7 @@ export default async function StoryblokDraftView(req: NextApiRequest, res: NextA
   const params = req.url!.split("?");
   const { slug } = req.query;
 
-  if (req.query.secret !== process.env.PREVIEW_ACCESS_TOKEN) {
+  if (req.query.secret !== process.env.STORYBLOK_PREVIEW_ACCESS_TOKEN) {
     return res.status(401).json({ message: "Invalid token" });
   }
 
