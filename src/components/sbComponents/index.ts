@@ -1,10 +1,10 @@
-import Footer from "./sbComponents/Common/Footer";
-import Grid from "./sbComponents/Common/Grid";
-import Page from "./sbComponents/Common/Page";
-import Paragraph from "./sbComponents/Common/Paragraph";
-import Teaser from "./sbComponents/Common/Teaser";
-import NextCard from "./sbComponents/NextCard/NextCard";
-import SplitCarouselView from "./sbComponents/SplitCarouselView/SplitCarouselView";
+import Footer from "./Common/Footer";
+import Grid from "./Common/Grid";
+import Page from "./Common/Page";
+import Paragraph from "./Common/Paragraph";
+import Teaser from "./Common/Teaser";
+import NextCard from "./NextCard/NextCard";
+import SplitCarouselView from "./SplitCarouselView/SplitCarouselView";
 
 export const storyblokComponents = {
   Grid: Grid,
