@@ -24,7 +24,7 @@ function MyApp({ Component, pageProps }: AppProps) {
    
    * Should also take router.asPath into consideration for accurate use of useMemo
    * correct usage: return useMemo(() => {
-    return <Component {...pageProps} />;
+    return <Component {...pageProps} /> // <-- this is the correct usage;
   }, [pageProps, router.asPath]);
    */
   return useMemo(() => {
