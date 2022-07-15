@@ -6,7 +6,7 @@ import Teaser from "./Common/Teaser";
 import NextCard from "./NextCard/NextCard";
 import SplitCarouselView from "./SplitCarouselView/SplitCarouselView";
 
-export const storybookComponents = {
+export const storyblokComponents = {
   Grid: Grid,
   Teaser: Teaser,
   Page: Page,

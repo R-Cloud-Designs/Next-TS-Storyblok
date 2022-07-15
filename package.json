@@ -4,7 +4,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "vitest"
+    "test": "vitest",
+    "test:e2e": "cypress run --e2e"
   },
   "dependencies": {
     "@storyblok/react": "1.0.12",
@@ -23,6 +24,7 @@
     "autoprefixer": "10.4.7",
     "c8": "^7.11.3",
     "firebase": "^9.9.0",
+    "cypress": "10.3.0",
     "framer-motion": "6.4.3",
     "jsdom": "20.0.0",
     "postcss": "8.4.14",

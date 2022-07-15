@@ -1,17 +1,17 @@
 import "../styles/globals.css";
 import "../styles/app.css";
+import { useMemo } from "react";
 import type { AppProps } from "next/app";
 import { storyblokInit, apiPlugin } from "@storyblok/react";
+import { storyblokComponents } from "../components/sbComponents";
 import { initializeApp } from "firebase/app";
 import { getAnalytics, isSupported } from "firebase/analytics";
-import { storybookComponents } from "../components/sbComponents";
 import { firebaseConfig } from "../utils/firebase/firebaseConfig";
-import { useMemo } from "react";
 
 storyblokInit({
   accessToken: process.env.STORYBLOK_ACCESS_TOKEN,
   use: [apiPlugin],
-  components: storybookComponents,
+  components: storyblokComponents,
 });
 
 const initializedFirebaseApp = initializeApp(firebaseConfig);
