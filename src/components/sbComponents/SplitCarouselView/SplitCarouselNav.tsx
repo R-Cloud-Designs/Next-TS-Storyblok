@@ -16,6 +16,7 @@ const SplitCarouselNav = ({ handleClick }: SplitCarouselNavType) => {
       <motion.span
         onClick={() => handleClick(-1)}
         className={styles.carousel_arrow}
+        id="carousel-previous-button"
         whileTap={carouselNavAnimationOptions.tap}
         whileHover={carouselNavAnimationOptions.hover}
       >
@@ -26,6 +27,7 @@ const SplitCarouselNav = ({ handleClick }: SplitCarouselNavType) => {
       <motion.div className={styles.nav_divider} />
       <motion.span
         className={styles.carousel_arrow}
+        id="carousel-next-button"
         onClick={() => handleClick(1)}
         whileTap={carouselNavAnimationOptions.tap}
         whileHover={carouselNavAnimationOptions.hover}
