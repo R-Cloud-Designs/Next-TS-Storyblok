@@ -2,32 +2,34 @@ import "../styles/globals.css";
 import "../styles/app.css";
 import type { AppProps } from "next/app";
 import { storyblokInit, apiPlugin } from "@storyblok/react";
-import Grid from "../components/sbComponents/Common/Grid";
-import Teaser from "../components/sbComponents/Common/Teaser";
-import Page from "../components/sbComponents/Common/Page";
-import NextCard from "../components/sbComponents/NextCard/NextCard";
-import Paragraph from "../components/sbComponents/Common/Paragraph";
-import Footer from "../components/sbComponents/Common/Footer";
-import SplitCarouselView from "../components/sbComponents/SplitCarouselView/SplitCarouselView";
-
-const components = {
-  Grid: Grid,
-  Teaser: Teaser,
-  Page: Page,
-  NextCard: NextCard,
-  Paragraph: Paragraph,
-  Footer: Footer,
-  SplitCarouselView: SplitCarouselView,
-};
+import { initializeApp } from "firebase/app";
+import { getAnalytics, isSupported } from "firebase/analytics";
+import { storybookComponents } from "../components/sbComponents";
+import { firebaseConfig } from "../utils/firebase/firebaseConfig";
+import { useMemo } from "react";
 
 storyblokInit({
   accessToken: process.env.STORYBLOK_ACCESS_TOKEN,
   use: [apiPlugin],
-  components,
+  components: storybookComponents,
 });
 
+const initializedFirebaseApp = initializeApp(firebaseConfig);
+if (await isSupported()) getAnalytics(initializedFirebaseApp);
+
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  /* 
+   * Bug: App renders 4 times when running in next dev mode. 
+   * potential-fix-added: adding a useMemo to only rerender when the pageProps changes.
+   
+   * Should also take router.asPath into consideration for accurate use of useMemo
+   * correct usage: return useMemo(() => {
+    return <Component {...pageProps} />;
+  }, [pageProps, router.asPath]);
+   */
+  return useMemo(() => {
+    return <Component {...pageProps} />;
+  }, [pageProps]);
 }
 
 export default MyApp;
