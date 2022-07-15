@@ -5,7 +5,7 @@
     "build": "next build",
     "start": "next start",
     "test": "vitest",
-    "test:cypress": "cypress open"
+    "test:e2e": "cypress run --e2e"
   },
   "dependencies": {
     "@storyblok/react": "1.0.12",
