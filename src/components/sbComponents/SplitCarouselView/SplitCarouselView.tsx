@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import styles from "../styles/SplitCarouselView.module.css";
 import { SplitCarouselViewType } from "../types/StoryblokComponentTypes";
 import { reduceCarouselViewItems } from "./helpers/reduceCarouselItems";
@@ -10,6 +10,8 @@ import SplitCarouselNav from "./SplitCarouselNav";
 import SplitCarouselContent from "./SplitCarouselContent";
 import { carouselViewAnimationOptions } from "./animationOptions";
 import SplitCarouselIndicator from "./SplitCarouselIndicator";
+import { logEvent, getAnalytics } from "firebase/analytics";
+import { isClientSideOnly } from "../../../utils/isWindowDefined";
 
 const SplitCarouselView = ({ blok }: SplitCarouselViewType) => {
   const carouselItems = reduceCarouselViewItems(blok.carousel_items);
@@ -23,6 +25,12 @@ const SplitCarouselView = ({ blok }: SplitCarouselViewType) => {
 
   useEffect(() => {
     setCurrentItem(carouselItems![currentIndex]);
+    /* Firebase Analytics temporarily disabled until i fix the render issues.
+     * LogEvent does log the event to firebase console, albeit 2 times... But it still works!
+     */
+    if (isClientSideOnly()) {
+      // logEvent(getAnalytics(), `User viewed ${currentItem.intro_title} card`);
+    }
   }, [currentIndex]);
 
   return (

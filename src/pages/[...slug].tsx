@@ -1,46 +1,43 @@
-import type { InferGetStaticPropsType } from "next";
 import Head from "next/head";
-import {
-  useStoryblokState,
-  getStoryblokApi,
-  StoryblokComponent,
-} from "@storyblok/react";
+import type { InferGetStaticPropsType } from "next";
+import { useStoryblokState, getStoryblokApi, StoryblokComponent } from "@storyblok/react";
 
 export async function getStaticPaths() {
   const storyblokApi = getStoryblokApi();
   const pathList: any[] = [];
 
-  let { data } = await storyblokApi.get("cdn/links/");
-  const dataLinks = Object.keys(data.links);
+  try {
+    const { data } = await storyblokApi.get("cdn/links/");
+    const dataLinks = Object.keys(data.links);
 
-  dataLinks.forEach((linkKey: any) => {
-    const slug = data.links[linkKey].slug;
-    const derivedSlug = slug.split("/");
-    pathList.push({ params: { slug: derivedSlug } });
-  });
+    dataLinks.forEach((linkKey: any) => {
+      const slug = data.links[linkKey].slug;
+      const derivedSlug = slug.split("/");
+      pathList.push({ params: { slug: derivedSlug } });
+    });
+  } catch (error: any) {
+    console.log(error);
+  }
 
   return {
     paths: pathList,
-    fallback: false,
+    fallback: true,
   };
 }
 
 export async function getStaticProps({ params, preview }: any) {
-  let slug = params.slug ? params.slug.join("/") : "home";
-  let sbParams = {
-    version: "draft",
-  };
-
   const storyblokApi = getStoryblokApi();
-  let { data } = await storyblokApi.get(`cdn/stories/${slug}`, sbParams);
+  const sbParams = { version: "draft" };
+  const sbSlug = params.slug ? params.slug.join("/") : "home";
 
+  const { data } = await storyblokApi.get(`cdn/stories/${sbSlug}`, sbParams);
   return {
     props: {
       story: data ? data.story : false,
       key: data ? data.story.id : false,
       preview: preview || false,
     },
-    revalidate: 3600,
+    revalidate: 1800,
   };
 }
 
