@@ -16,7 +16,7 @@ export async function getStaticPaths() {
       pathList.push({ params: { slug: derivedSlug } });
     });
   } catch (error: any) {
-    console.log(error.response.statusText);
+    console.log(error);
   }
 
   return {
