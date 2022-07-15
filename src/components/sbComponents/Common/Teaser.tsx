@@ -7,7 +7,7 @@ const Teaser = ({ blok }: StoryblokTeaserType) => {
     <div {...storyblokEditable(blok)}>
       <h1 className="text-6xl font-bold">
         {blok.title}
-        <a className="text-blue-600" href={blok.url}>
+        <a id="url-title" className="text-blue-600" href={blok.url}>
           {blok.urlTitle}
         </a>
       </h1>
