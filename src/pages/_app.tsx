@@ -18,15 +18,6 @@ const initializedFirebaseApp = initializeApp(firebaseConfig);
 if (await isSupported()) getAnalytics(initializedFirebaseApp);
 
 function MyApp({ Component, pageProps }: AppProps) {
-  /* 
-   * Bug: App renders 4 times when running in next dev mode. 
-   * potential-fix-added: adding a useMemo to only rerender when the pageProps changes.
-   
-   * Should also take router.asPath into consideration for accurate use of useMemo
-   * correct usage: return useMemo(() => {
-    return <Component {...pageProps} /> // <-- this is the correct usage;
-  }, [pageProps, router.asPath]);
-   */
   return useMemo(() => {
     return <Component {...pageProps} />;
   }, [pageProps]);
