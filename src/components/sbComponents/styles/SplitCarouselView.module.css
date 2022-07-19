@@ -1,0 +1,147 @@
+
+.carousel_wrapper {
+    height: 550px;
+    width: 900px;
+    display: flex; 
+    position: relative; 
+    border-radius: 0.75rem;
+    cursor: url("/misc/custom-cursor.png"), pointer;
+}
+
+.carousel_arrow {
+    display: inline-block;
+    padding: 11px 15px;
+    position: relative;
+}
+
+.carousel_content_wrapper {
+    width: 100%; 
+    height: 100%; 
+    display: flex; 
+    /* background: #fff; */
+    border-radius: 0.75rem; 
+    box-shadow: 0px 0px 25px 5px rgba(0,0,0,0.05);
+}
+
+.carousel_content_container {
+    width: 40%;
+    height: 100%; 
+    display: flex; 
+    padding-left: 2.5rem;
+    padding-right: 2.5rem; 
+    background-color: #ffffff; 
+    flex-direction: column; 
+    justify-content: center; 
+    border-top-right-radius: 0.75rem;
+    border-bottom-right-radius: 0.75rem; 
+}
+
+.carousel_bg_container {
+    width: 100%; 
+    height: 100%;
+    z-index: 10; 
+    border-top-left-radius: 0.75rem;
+    border-bottom-left-radius: 0.75rem; 
+
+
+}
+
+.carousel_content_title {
+    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-size: 0.75rem;
+    text-align: left; 
+}
+
+.carousel_content_header {
+    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; 
+    font-size: 2.25rem;
+    line-height: 2.5rem; 
+    font-weight: 700; 
+    text-align: left; 
+    margin-top: 15px;
+    color: #c5a93b;
+}
+
+.carousel_content_description {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; 
+    font-size: 0.875rem;
+    line-height: 1.25rem; 
+    text-align: left; 
+    margin-bottom: 2.25rem; 
+    color: #7e7e7e;
+}
+
+.carousel_content_button_link {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; 
+    width: 80%;
+    letter-spacing: -0.025em; 
+    text-align: left; 
+    color: #2C2C2C;
+
+}
+
+
+.split_carousel_image {
+    z-index: 0; 
+    width: 100%; 
+    height: 100%; 
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    border-top-left-radius: 0.75rem;
+    border-bottom-left-radius: 0.75rem; 
+}
+
+.carousel_nav_container{
+    position: absolute; 
+    z-index: 10; 
+    right: 0; 
+    bottom: 0; 
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-bottom-right-radius: 0.75rem; 
+}
+
+.button_icon {
+    width: 1.5rem; 
+    height: 2rem; 
+    fill: inherit;
+    display: inline-block; 
+    vertical-align: middle; 
+}
+
+.nav_divider {
+    content:'';
+    width: 1px;
+    height: 14px;
+    background-color: #b0b0b0;
+}
+
+.dev_mode_counter {
+    position: absolute;
+    width: 6.25rem; 
+    top: 1.25rem; 
+    right: 1.5rem; 
+    z-index: 30; 
+    font-size: 1.5rem;
+    line-height: 2rem;  
+    letter-spacing: -0.025em; 
+    text-align: left;
+}
+
+.animated_pagination_indicator {
+    position: relative;
+    display: inline-block;
+    z-index: 100;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: #c5a93b;
+    margin: 2px;
+}
+.animated_pagination_container {
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+}  
